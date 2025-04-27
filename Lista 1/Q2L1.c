@@ -631,7 +631,7 @@ void main(){
 /*
  Escrever um programa para verificar se um número é um palíndromo ou não.
 */
-
+/*
 #include<stdio.h>
 #include<math.h>
 #include<complex.h>
@@ -692,10 +692,1329 @@ void main(){
     }
 
 }
+*/
+
+//9
+
+/*
+Escrever um programa que imprimi na tela a soma dos valores de cada coluna e de
+cada linha de uma dada tabela. Com leitura
+do número de linhas, de colunas e dos valores da tabela via teclado.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int linhas, colunas, i,j;
 
 
+    printf("Digite o numero de linhas da tabela.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da tabela.\n");
+    scanf("%d", &colunas);
+
+    float tabela[linhas][colunas];
+
+    printf("Digite o valor para:\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("Linha: %d \t Coluna: %d\n", i+1, j+1);
+            scanf("%f", &tabela[i][j]);
+        }
+    }
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", tabela[i][j]);
+        }
+        printf("\n");
+    }
+
+    float somaLinha, somaColuna;
+    //Soma das linhas
+    for(i=0; i<linhas; i++){
+        somaLinha = 0.0;
+        for(j=0; j<colunas; j++){
+            somaLinha += tabela[i][j];
+        }
+        printf("\nSoma linha %d: %f",i+1, somaLinha );
+    }
+    printf("------------------------------------------");
+    //Soma das colunas
+    for(j=0; j<colunas; j++){
+        somaColuna = 0.0;
+        for(i=0; i<linhas; i++){
+            somaColuna += tabela[i][j];
+        }
+        printf("\nSoma coluna %d: %f",j+1, somaColuna );
+    }
 
 
+}
+*/
+
+//12
+
+/*
+Escrever um programa, que lê n notas de
+uma disciplina (0,0-10,0) de um estudante e calcular a média dessas notas.
+*/
+/*
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    int n,i;
+
+    printf("Digite o numero de notas dessa disciplina.\n");
+    scanf("%d", &n);
+    float notas[n];
+
+    for(i=0; i<n; i++){
+        printf("Digite o valor da nota %d:\n", i+1);
+        scanf("%f", &notas[i]);
+    }
+
+    float somaNotas = 0.0;
+
+    printf("\nVetor de notas:\n");
+    for(i=0; i<n; i++){
+        printf("Nota %d: %f\n", i+1, notas[i]);
+
+    }
+
+    for(i=0; i<n; i++){
+        somaNotas += notas[i];
+
+    }
+    printf("\nMedia: %f", somaNotas/n);
+
+}
+*/
+
+//15
+
+/*
+Escrever um programa para criar um vetor
+a partir de um vetor de números inteiros, deslocando todos os números pares para
+antes de todos os números ímpares.
+*/
+
+/*
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    int tamanhoVetor;
+
+    printf("Digite a quantidade de numeros desejados para o vetor.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int vetor[tamanhoVetor];
+    int i;
+    int j=0;
+    int vetorArr[tamanhoVetor];
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\nDigite o numero %d:\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]%2 ==0){
+            vetorArr[j] = vetor[i];
+            j+=1;
+        }
+    }
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]%2 !=0){
+            vetorArr[j] = vetor[i];
+            j+=1;
+        }
+    }
+    printf("\nVetor final arrumado.\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d", vetorArr[i]);
+    }
+
+}
+*/
+
+//16
+
+/*
+Escrever um programa usando para criar um novo vetor depois
+de substituir todos os valores 7 em um vetor dado por 0, deslocando todos os zeros
+para o começo do vetor.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+
+    int tamanhoVetor ;
+    printf("Digite o tamanho do vetor. \n");
+    scanf("%d", &tamanhoVetor);
+
+    int vetorOriginal[tamanhoVetor];
+    int vetorArrumado[tamanhoVetor];
+    int i;
+    int j=0;
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\nDigite o numero %d:\n", i+1);
+        scanf("%d", &vetorOriginal[i]);
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetorOriginal[i] == 7){
+            vetorOriginal[i] = 0;
+        }
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetorOriginal[i] == 0){
+            vetorArrumado[j] = vetorOriginal[i];
+            j+=1;
+        }
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetorOriginal[i] != 0){
+            vetorArrumado[j] = vetorOriginal[i];
+            j+=1;
+        }
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\n%d", vetorArrumado[i]);
+    }
+}
+*/
+
+//17
+
+/*
+Escrever um programa para verificar se um dado conjunto
+de números inteiros contém 3 ou 5
+*/
+/*
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<complex.h>
+#include<stdlib.h>
+#include <stdbool.h>
+
+void main(){
+    int tamanhoVetor;
+    printf("Digite o tamanho do conjunto de numeros.\n");
+    scanf("%d", &tamanhoVetor);
+    int vetor[tamanhoVetor];
+    int i;
+    for(i=0; i<tamanhoVetor; i++){
+        printf("Digite o numero %d do conjunto:\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+    bool numero3;
+    bool numero5;
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]==3){
+            numero3 = true;
+        }
+        if(vetor[i]==5){
+            numero5 =true;
+        }
+    }
+    if(numero3==true && numero5==true){
+        printf("\nO conjunto de dados possui o numero 3 e o numero 5.\n");
+    }
+    else if(numero3==true){
+        printf("\nO conjunto de dados possui o numero 3.\n");
+    }
+    else if(numero5==true){
+        printf("\nO conjunto de dados possui o numero 5.\n");
+    }
+    else{
+        printf("\nO conjunto de dados nao possui o numero 3 nem o numero 5.\n");
+    }
+
+}
+*/
+
+//18
+
+/*
+Escrever um programa para verificar se a soma de todos
+os valores ímpares em um vetor levam exatamente a 32
+*/
+
+/*
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include<complex.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+void main(){
+    int tamanhoVetor,i;
+    printf("Digite o tamanho do conjunto de dados.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int vetor[tamanhoVetor];
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\nDigite o numero %d do conjunto de numeros.\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+    int soma=0;
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]%2!=0){
+            soma += vetor[i];
+        }
+    }
+
+    if(soma==32){
+        printf("O resultado da soma eh 32.");
+    }
+    else{
+        printf("O resultado da soma eh: %d", soma);
+    }
+
+}
+*/
+
+//19
+
+/*
+Escrever um programa para calcular a soma dos números de uma determinada matriz. Número de colunas, linhas e valores devem ser
+fornecidos via teclado.
+
+*/
+
+/*
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    int linhas, colunas, i,j;
+
+    printf("Digite o numero de linhas da matriz.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da matriz.\n");
+    scanf("%d", &colunas);
+
+    float matriz[linhas][colunas];
+
+    for(i=0; i<linhas; i++){
+        for(j=0;j<colunas; j++){
+            printf("\nLinha: %d \t Coluna: %d\n", i+1,j+1);
+            scanf("%f", &matriz[i][j]);
+        }
+    }
+
+    for(i=0; i<linhas; i++){
+        for(j=0;j<colunas; j++){
+            printf("%f \t", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    float soma=0.0;
+    for(i=0; i<linhas; i++){
+        for(j=0;j<colunas; j++){
+            soma+=matriz[i][j];
+        }
+    }
+
+    printf("\nA soma eh: %f", soma);
+
+}
+*/
+
+//20
+
+/*
+Escrever um programa para ordenar os elementos de um
+vetor.
+*/
+
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main(){
+    int tamanhoVetor ;
+    printf("Digite o tamanho do vetor.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int vetor[tamanhoVetor];
+
+    int i,j;
+    int aux;
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\nDigite o numero %d\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+    for(i = 0; i < tamanhoVetor -1; i++){
+       for(j = 0; j < tamanhoVetor -1 - i; j++){
+            if(vetor[j]>vetor[j+1]){
+                aux = vetor[j];
+                vetor[j] = vetor[j+1];
+                vetor[j+1] = aux;
+            }
+        }
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("\n%d", vetor[i]);
+    }
+}
+*/
+
+//25
+
+/*
+Escrever um programa que recebe número de linhas e
+número de colunas de uma matriz via teclado e por uma alguma regra preenche a
+matriz com valores não nulos variáveis e a imprime na tela.
+*/
+
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int linhas, colunas, i, j;
+
+    printf("Digite o numero de linhas da matriz. \n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da matriz. \n");
+    scanf("%d", &colunas);
+
+    float mat[linhas][colunas];
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            mat[i][j] = pow(i,j) * sin(i) + cos(j);
+        }
+    }
+    printf("\nMatriz\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+}
+*/
+
+//26
+
+/*
+Escrever um programa para somar duas matrizes, imprimindo na tela o resultado (número de linhas, de colunas e valores nas matrizes vem
+do teclado).
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int linhas, colunas, i, j;
+
+    printf("Digite o numero de linhas das duas matrizes.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas das duas matrizes.\n");
+    scanf("%d", &colunas);
+
+    float mat1[linhas][colunas];
+    float mat2[linhas][colunas];
+    float mat3[linhas][colunas];
+
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas;j++){
+            mat1[i][j] = pow(j,i)* cos(j);
+            mat2[i][j] = pow(i,j)* sin(i);
+            mat3[i][j] = mat1[i][j] + mat2[i][j];
+        }
+    }
+    printf("\nMatriz 1.\n");
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas;j++){
+            printf("%f \t", mat1[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMatriz 2.\n");
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas;j++){
+            printf("%f \t", mat2[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMatriz 1 + Matriz 2.\n");
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas;j++){
+            printf("%f \t", mat3[i][j]);
+        }
+        printf("\n");
+    }
+}
+*/
+
+//32
+
+/*
+Escrever um programa para realizar a multiplicação
+de duas matrizes. Números de linhas, colunas e valores nas matrizes devem ser
+recebidos do teclado.
+
+*/
+/*
+
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include<complex.h>
+#include<stdlib.h>
+
+void main(){
+    int linhas1, linhas2, colunas1, colunas2, i, j;
+
+    printf("Digite o numero de linhas da primeira matriz.\n");
+    scanf("%d", &linhas1);
+
+    printf("Digite o numero de colunas da primeira matriz.\n");
+    scanf("%d", &colunas1);
+
+    printf("Digite o numero de linhas da segunda matriz.\n");
+    scanf("%d", &linhas2);
+
+    printf("Digite o numero de colunas da segunda matriz.\n");
+    scanf("%d", &colunas2);
+
+    if(colunas1!=linhas2){
+        printf("\nA multiplicacao nao pode ser realizada pois o numero de colunas da primeira matriz e diferente do numero de linhas da segunda matriz.\n");
+        return;
+    }
+    else{
+        float mat1[linhas1][colunas1];
+        float mat2[linhas2][colunas2];
+        float res[linhas1][colunas2];
+
+        //PRIMEIRA MATRIZ
+        printf("Preencha a primeira matriz.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas1; j++){
+                printf("\nLinha: %d\t Coluna: %d\n", i+1,j+1);
+                scanf("%f", &mat1[i][j]);
+            }
+        }
+        printf("\nMatriz 1.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas1; j++){
+                printf("%f\t", mat1[i][j]);
+            }
+            printf("\n");
+        }
+
+        //SEGUNDA MATRIZ
+        printf("Preencha a segunda matriz.\n");
+        for(i=0; i<linhas2; i++){
+            for(j=0; j<colunas2; j++){
+                printf("\nLinha: %d\t Coluna: %d\n", i+1,j+1);
+                scanf("%f", &mat2[i][j]);
+            }
+        }
+        printf("\nMatriz 2.\n");
+        for(i=0; i<linhas2; i++){
+            for(j=0; j<colunas2; j++){
+                printf("%f\t", mat2[i][j]);
+            }
+            printf("\n");
+        }
+
+        //MULTIPLICACAO DAS MATRIZES
+        int k;
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas2; j++){
+                float soma = 0.0;
+                for(k=0; k<colunas1; k++){
+                     soma += mat1[i][k] * mat2[k][j];
+                }
+                res[i][j] = soma;
+            }
+        }
+
+        printf("\nMatriz resultado.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas2; j++){
+                printf("%f \t", res[i][j]);
+            }
+            printf("\n");
+        }
+
+    }
+}
+*/
 
 
+////////ALOCAÇÃO DINAMICA
 
+
+//9
+/*
+Escrever um programa que imprimi na tela a soma dos valores de cada coluna e de
+cada linha de uma dada tabela. Utilize alocação dinâmica de memória, com leitura
+do número de linhas, de colunas e dos valores da tabela via teclado.
+*/
+/*
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    float **mat;
+    int linhas,colunas,i,j;
+
+    printf("Digite o numero de linhas da tabela.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da tabela.\n");
+    scanf("%d", &colunas);
+
+    mat = malloc(linhas*sizeof(float));
+
+    for(i=0; i<linhas; i++){
+        mat[i] = malloc(colunas*sizeof(float));
+    }
+    printf("Digite o valor para cada linha e coluna da tabela.\n");
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas; j++){
+            printf("Linha: %d, Coluna: %d\n", i+1,j+1);
+            scanf("%f", &mat[i][j]);
+        }
+    }
+
+    printf("Matriz digitada.\n");
+    for(i=0; i<linhas;i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+
+    for(i=0; i<linhas;i++){
+        float somaLinha = 0.0;
+        for(j=0; j<colunas; j++){
+            somaLinha += mat[i][j];
+        }
+        printf("\nSoma linha %d: %f", i+1, somaLinha);
+    }
+    printf("--------------------------------------------------");
+    for(i=0; i<colunas;i++){
+        float somaColuna = 0.0;
+        for(j=0; j<linhas; j++){
+            somaColuna += mat[j][i];
+        }
+        printf("\nSoma Coluna %d: %f", i+1, somaColuna);
+    }
+    for (i = 0; i < linhas; i++) {
+        free(matriz[i]);
+    }
+    free(matriz);
+
+}
+*/
+
+
+//12
+
+/*
+Escrever um programa, usando alocação dinâmica de memória, que lê n notas de
+uma disciplina (0,0-10,0) de um estudante e calcular a média dessas notas
+*/
+/*
+#include<math.h>
+#include<stdio.h>
+#include<complex.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main(){
+    int n, i;
+
+    printf("Digite a quantidade de notas da disciplina.\n");
+    scanf("%d", &n);
+
+    float *vetor = malloc(n*sizeof(float));
+
+    for(i=0; i<n; i++){
+        printf("Digite o valor da nota %d:\n", i+1);
+        scanf("%f", &vetor[i]);
+    }
+    float somaNotas = 0.0;
+    for(i=0; i<n; i++){
+        somaNotas += vetor[i];
+    }
+    printf("\nA media eh: %f", somaNotas/n);
+
+    free(vetor);
+
+}
+*/
+
+//15
+
+/*
+Escrever um programa usando alocação dinâmica de memória para criar um vetor
+a partir de um vetor de números inteiros, deslocando todos os números pares para
+antes de todos os números ímpares.
+*/
+
+/*
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<string.h>
+#include<complex.h>
+
+void main(){
+    int tamanhoVetor,i;
+    int j=0;
+
+    printf("Digite o tamanho do vetor a ser analisado.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int *vetor= malloc(tamanhoVetor*sizeof(int));
+
+    for(i=0; i<tamanhoVetor;i++){
+        printf("Numero %d:\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+    int *vetorArr = malloc(tamanhoVetor*sizeof(int));
+
+    for(i=0; i<tamanhoVetor;i++){
+       if(vetor[i]%2==0){
+            vetorArr[j] = vetor[i];
+            j+=1;
+       }
+    }
+
+    for(i=0; i<tamanhoVetor;i++){
+       if(vetor[i]%2!=0){
+            vetorArr[j] = vetor[i];
+            j+=1;
+       }
+    }
+    printf("\nVetor Original:\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d\n", vetor[i]);
+    }
+
+    printf("\nVetor Arrumado:\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d\n", vetorArr[i]);
+    }
+    free(vetor);
+    free(vetorArr);
+
+}
+*/
+
+
+//16
+
+/*
+Escrever um programa usando alocação dinâmica para criar um novo vetor depois
+de substituir todos os valores 7 em um vetor dado por 0, deslocando todos os zeros
+para o começo do vetor
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int tamanhoVetor, i;
+    int j=0;
+
+    printf("Digite o tamanho do vetor.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int *vetor = malloc(tamanhoVetor*sizeof(int));
+
+    for(i=0; i<tamanhoVetor; i++){
+        printf("Valor %d\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+
+
+    printf("\nVetor Original:\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d \t", vetor[i]);
+    }
+    printf("\n");
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]==7){
+            vetor[i] = 0;
+        }
+    }
+
+    printf("\nVetor com 0:\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d \t", vetor[i]);
+    }
+    printf("\n");
+    int *vetorArrumado = malloc(tamanhoVetor*sizeof(int));
+
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]==0){
+            vetorArrumado[j] = vetor[i];
+            j+=1;
+        }
+    }
+
+    for(i=0; i<tamanhoVetor; i++){
+        if(vetor[i]!=0){
+            vetorArrumado[j] = vetor[i];
+            j+=1;
+        }
+    }
+
+    printf("\nVetor Arrumado:\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("%d \t", vetorArrumado[i]);
+    }
+}
+*/
+
+//17
+
+/*
+Escrever um programa usando alocação dinâmica para verificar se um dado conjunto
+de números inteiros contém 3 ou 5
+*/
+/*
+
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<complex.h>
+#include<string.h>
+#include<stdbool.h>
+
+void main(){
+    int tamanhoConjunto,i;
+
+    printf("Digite o tamanho do conjunto de dados.\n");
+    scanf("%d", &tamanhoConjunto);
+
+    int *conjunto = malloc(tamanhoConjunto*sizeof(int));
+
+    for(i=0; i<tamanhoConjunto; i++){
+        printf("Conjunto -> Numero %d\n", i+1);
+        scanf("%d", &conjunto[i]);
+    }
+    bool numero3 = false;
+    bool numero5= false;
+
+    for(i=0; i<tamanhoConjunto; i++){
+        if(conjunto[i]==3){
+            numero3 = true;
+        }
+        if(conjunto[i]==5){
+            numero5 = true;
+        }
+    }
+
+    if(numero3== true && numero5==true){
+        printf("\nO conjunto possui o numero 3 e o numero 5.");
+    }else if(numero3==true){
+        printf("\nO conjunto possui apenas o numero 3.");
+    }else if(numero5==true){
+        printf("\nO conjunto possui apenas o numero 5.");
+    }else{
+        printf("\nO conjunto nao possui o numero 3 nem o numero 5.");
+    }
+
+
+}
+*/
+
+
+//18
+
+/*
+Escrever um programa usando alocação dinâmica para verificar se a soma de todos
+os valores ímpares em um vetor levam exatamente a 32.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int tamanhoConjunto, i;
+
+    printf("Digite o tamanho do conjunto de dados.\n");
+    scanf("%d", &tamanhoConjunto);
+
+    int *conjunto = malloc(tamanhoConjunto*sizeof(int));
+
+    for(i=0; i<tamanhoConjunto; i++){
+        printf("Valor %d\n", i+1);
+        scanf("%d", &conjunto[i]);
+    }
+    int somaImpar = 0;
+
+    for(i=0; i<tamanhoConjunto; i++){
+        if(conjunto[i]%2!=0){
+            somaImpar += conjunto[i];
+        }
+    }
+    if(somaImpar==32){
+        printf("\nA soma dos valores impares eh 32.");
+    }
+    else{
+        printf("\nA soma dos valores impares eh %d", somaImpar);
+    }
+}
+*/
+
+//14
+
+/*
+Escrever um programa que troca dois números dentre as variáveis em que eles estão,
+sem utilizar uma terceira variável.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include<complex.h>
+#include<stdlib.h>
+
+void main(){
+    int numero1, numero2;
+
+    printf("Digite o primeiro numero.\n");
+    scanf("%d", &numero1);
+
+    printf("Digite o segundo numero.\n");
+    scanf("%d", &numero2);
+
+    numero1= numero1+numero2;
+    numero2 = numero1-numero2;
+    numero1=numero1-numero2;
+
+    printf("\nNumero 1: %d", numero1);
+    printf("\nNumero 2: %d", numero2);
+}
+*/
+
+//19
+
+/*
+Escrever um programa usando alocação dinâmica para calcular a soma dos números de uma determinada matriz. Número de colunas, linhas e valores devem ser
+fornecidos via teclado.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main(){
+    int linhas, colunas,i, j;
+
+    printf("Digite o numero de linhas da matriz.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da matriz.\n");
+    scanf("%d", &colunas);
+
+    float **mat = malloc(linhas*sizeof(float));
+
+    for(i=0; i<linhas; i++){
+        mat[i] = malloc(colunas*sizeof(float));
+    }
+    printf("\nPreencha a matriz.\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("Linha:%d  Coluna:%d\n", i+1,j+1);
+            scanf("%f", &mat[i][j]);
+        }
+    }
+    printf("\nMatriz final.\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+    float soma=0.0;
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+           soma+= mat[i][j];
+        }
+    }
+    for(i=0; i<linhas; i++){
+        free(mat[i]);
+    }
+    free(mat);
+
+    printf("\nA soma eh: %f", soma);
+}
+*/
+
+//20
+
+/*
+Escrever um programa usando alocação dinâmica para ordenar os elementos de um
+vetor.
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    int tamanhoVetor, i, j;
+
+    printf("Digite o tamanho do conjunto de dados.\n");
+    scanf("%d", &tamanhoVetor);
+
+    int *vetor = malloc(tamanhoVetor*sizeof(int));
+    printf("\nPreencha o conjunto de dados.\n");
+    for(i=0; i<tamanhoVetor; i++){
+        printf("Numero %d:\n", i+1);
+        scanf("%d", &vetor[i]);
+    }
+    printf("\nConjunto de dados:\n");
+    for(i=0; i<tamanhoVetor; i++){
+       printf("%d \n", vetor[i]);
+    }
+
+    int aux;
+    for(i=0; i<tamanhoVetor-1; i++){
+        for(j=0; j<tamanhoVetor-1-i; j++){
+            if(vetor[j]>vetor[j+1]){
+                aux= vetor[j+1];
+                vetor[j+1] = vetor[j];
+                vetor[j] = aux;
+            }
+        }
+    }
+
+    printf("\nVetor ordenado\n");
+    for(i=0; i<tamanhoVetor; i++){
+       printf("%d \n", vetor[i]);
+    }
+    free(vetor);
+}
+*/
+//25
+
+/*
+Escrever um programa usando alocação dinâmica que recebe número de linhas e
+número de colunas de uma matriz via teclado e por uma alguma regra preenche a
+matriz com valores não nulos variáveis e a imprime na tela
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<string.h>
+#include<stdlib.h>
+
+void main(){
+    int linhas, colunas, i, j;
+
+    printf("Digite o numero de linhas da matriz.\n");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas da matriz.\n");
+    scanf("%d", &colunas);
+
+    float **mat = malloc(linhas*sizeof(float*));
+
+    for(i=0; i<linhas; i++){
+        mat[i] = malloc(colunas*sizeof(float));
+    }
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            mat[i][j] = sin(i*j)+ pow(i,j);
+        }
+    }
+
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<linhas; i++){
+        free(mat[i]);
+    }
+    free(mat);
+
+}
+*/
+
+//26
+
+/*
+Escrever um programa usando alocação dinâmica para somar duas matrizes, imprimindo na tela o resultado (número de linhas, de colunas e valores nas matrizes vem
+do teclado).
+*/
+/*
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<complex.h>
+#include<string.h>
+
+void main(){
+    int linhas, colunas, i,j;
+
+    printf("Digite o numero de linhas das matrizes.\n");
+    scanf("%d", &linhas);
+    printf("Digite o numero de colunas das matrizes.\n");
+    scanf("%d", &colunas);
+
+    float **mat1 = malloc(linhas*sizeof(float*));
+    float **mat2 = malloc(linhas*sizeof(float*));
+    float **mat3 = malloc(linhas*sizeof(float*));
+
+    for(i=0; i<linhas; i++){
+        mat1[i]= malloc(colunas*sizeof(float));
+        mat2[i]= malloc(colunas*sizeof(float));
+        mat3[i]= malloc(colunas*sizeof(float));
+    }
+
+    printf("\nPreencha a primeira matriz.\n");
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("Linha: %d Coluna: %d:\n", i+1, j+1);
+            scanf("%f", &mat1[i][j]);
+        }
+    }
+
+    printf("\nPreencha a segunda matriz.\n");
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("Linha: %d Coluna: %d:\n", i+1, j+1);
+            scanf("%f", &mat2[i][j]);
+        }
+    }
+
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            mat3[i][j]= mat1[i][j] + mat2[i][j];
+        }
+    }
+    printf("\nMatriz1\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat1[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMatriz2\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat2[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nMatriz3\n");
+    for(i=0; i<linhas; i++){
+        for(j=0; j<colunas; j++){
+            printf("%f \t", mat3[i][j]);
+        }
+        printf("\n");
+    }
+
+    for(i=0; i<linhas; i++){
+        free(mat1[i]);
+        free(mat2[i]);
+        free(mat3[i]);
+    }
+    free(mat1);
+    free(mat2);
+    free(mat3);
+}
+*/
+
+//32
+
+/*
+Escrever um programa, usando alocação dinâmica, para realizar a multiplicação
+de duas matrizes. Números de linhas, colunas e valores nas matrizes devem ser
+recebidos do teclado.
+*/
+
+#include<stdio.h>
+#include<math.h>
+#include<complex.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main(){
+    int linhas1, colunas1, linhas2, colunas2, i, j, k;
+
+    //MATRIZ1
+    printf("Digite o numero de linhas da primeira matriz.\n");
+    scanf("%d", &linhas1);
+    printf("Digite o numero de colunas da primeira matriz.\n");
+    scanf("%d", &colunas1);
+
+    //MATRIZ2
+    printf("\nDigite o numero de linhas da segunda matriz.\n");
+    scanf("%d", &linhas2);
+    printf("\nDigite o numero de colunas da segunda matriz.\n");
+    scanf("%d", &colunas2);
+
+    if(colunas1==linhas2){
+        float **mat1 = malloc(linhas1*sizeof(float*));
+        float **mat2 = malloc(linhas2*sizeof(float*));
+        float **mat3 = malloc(linhas1*sizeof(float*));
+
+        for(i=0; i<linhas1; i++){
+            mat1[i] = malloc(colunas1*sizeof(float));
+        }
+
+        for(i=0; i<linhas2; i++){
+            mat2[i] = malloc(colunas2*sizeof(float));
+        }
+
+        for(i=0; i<linhas1; i++){
+            mat3[i] = malloc(colunas2*sizeof(float));
+        }
+
+        printf("\nPreencha a matriz 1.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas1; j++){
+                printf("Linha:%d Coluna:%d:\n", i+1, j+1);
+                scanf("%f", &mat1[i][j]);
+            }
+        }
+
+        printf("\nPreencha a matriz 2.\n");
+        for(i=0; i<linhas2; i++){
+            for(j=0; j<colunas2; j++){
+                printf("Linha: %d Coluna: %d\n", i+1, j+1);
+                scanf("%f", &mat2[i][j]);
+            }
+        }
+
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas2; j++){
+                float soma =0.0;
+                for(k=0; k<colunas1; k++){
+                    soma+= mat1[i][k]*mat2[k][j];
+                }
+                mat3[i][j]= soma;
+            }
+        }
+
+        //IMPRIMINDO MATRIZES
+        printf("\nMatriz 1.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas1; j++){
+                printf("%f \t", mat1[i][j]);
+            }
+            printf("\n");
+        }
+
+        printf("\nMatriz 2.\n");
+        for(i=0; i<linhas2; i++){
+            for(j=0; j<colunas2; j++){
+                printf("%f \t", mat2[i][j]);
+            }
+            printf("\n");
+        }
+
+        printf("\nMatriz 3.\n");
+        for(i=0; i<linhas1; i++){
+            for(j=0; j<colunas2; j++){
+                printf("%f \t", mat3[i][j]);
+            }
+            printf("\n");
+        }
+
+        for(i=0; i<linhas1; i++){
+            free(mat1[i]);
+            free(mat3[i]);
+        }
+        for(i=0; i<linhas2; i++){
+            free(mat2[i]);
+        }
+        free(mat1);
+        free(mat2);
+        free(mat3);
+    }
+    else{
+        printf("\nO numero de colunas da primeira matriz deve ser igual ao numero de linhas da segunda matriz.");
+    }
+}

@@ -1,0 +1,3 @@
+Numero1: 3
+Numero2: 5
+Operação: 2

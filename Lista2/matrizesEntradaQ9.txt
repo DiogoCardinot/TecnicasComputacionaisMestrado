@@ -1,0 +1,12 @@
+Linhas1: 3
+Colunas1: 3
+Linhas2: 3
+Colunas2: 3
+Matriz1:
+0	0	0
+0	1	2
+0	2	4
+Matriz2:
+0	1	2
+1	2	3
+2	3	4
