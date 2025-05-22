@@ -1,0 +1,3 @@
+intervalo_esquerda: 0
+interval_direita: 2
+pontos_dominio: 20

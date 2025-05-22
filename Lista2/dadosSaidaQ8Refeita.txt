@@ -1,0 +1,1 @@
+A subtracao dos numeros eh: -2.000000
